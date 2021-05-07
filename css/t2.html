@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<style> 
+
+.my-class-1 a {
+    color: inherit;
+}
+          
+.my-class-2 a {
+    color: initial;
+}
+          
+.my-class-3 a {
+    color: unset;
+}
+blockquote {
+    background-color: red;
+    border: 2px solid green;
+}
+.fix-this{
+    all:unset
+}
+/* specificity: 0101 */
+#outer a {
+    background-color: red;
+}
+/* specificity: 0201 */
+#outer #inner a {
+    background-color: blue;
+}
+/* specificity: 0104 */
+#outer div ul li a {
+    color: yellow;
+}
+/* specificity: 0113 */
+#outer div ul .nav a {
+    color: white;
+}
+/* specificity: 0024 */
+div div li:nth-child(2) a:hover {
+    border: 10px solid black;
+}
+/* specificity: 0023 */
+div li:nth-child(2) a:hover {
+    border: 10px dashed black;
+}
+/* specificity: 0033 */
+div div .nav:nth-child(2) a:hover {
+    border: 10px double black;
+}
+a {
+    /* 设置成块元素 */
+    display: inline-block;
+    line-height: 40px;
+    font-size: 20px;
+    text-decoration: none;
+    text-align: center;
+    width: 200px;
+    /* 块元素间隔 */
+    margin-bottom: 10px;
+}
+ul {
+    /* 边距 */
+    padding: 0;
+}
+/* 去除li样式 */
+li {
+    list-style-type: none;
+} 
+
+</style>
+<body>
+    <ul>
+        <li>Default <a href="#">link</a> color</li>
+        <li class="my-class-1">Inherit the <a href="#">link</a> color</li>
+        <li class="my-class-2">Reset the <a href="#">link</a> color</li>
+        <li class="my-class-3">Unset the <a href="#">link</a> color</li>
+    </ul>
+    <div>
+        <blockquote>
+            <p>This blockquote is styled</p>
+        </blockquote>
+
+        <blockquote class="fix-this">
+            <p>This blockquote is not styled</p>
+        </blockquote>
+    </div>
+    <div>
+        <h2>Heading with no class</h2>
+        <h2 class="small">Heading with class of small</h2>
+        <h2 class="bright">Heading with class of bright</h2>
+
+    </div>
+    <div id="outer" class="container">
+        <div id="inner" class="container">
+            <ul>
+                <li class="nav"><a href="#">One</a></li>
+                <li class="nav"><a href="#">Two</a></li>
+            </ul>
+        </div>
+    </div>
+</body>
+</html>
